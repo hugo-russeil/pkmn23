@@ -141,12 +141,6 @@ public:
      * @return the type efficiency multiplier for typeAtk attacking typeDef
      */
     float typeEfficacity(std::string typeAtk, std::string typeDef);
-    /**
-     * @brief howMuchFaster returns the number of attacks a pokemon can launch before his slower opponent can attack
-     * @param slowest a pokemon, that has been found to be slower than his opponent
-     * @return the faster pokemon's speed divided by the slower pokemon's speed, effectively giving the number of attacks a pokemon can launch before his slower opponent can attack
-     */
-    int howMuchFaster(Pokemon* slowest);
 };
 
 #endif // POKEMON_H

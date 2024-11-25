@@ -81,8 +81,3 @@ float Pokemon::typeEfficacity(std::string typeAtk, std::string typeDef)
     float efficiency = typesChart[typesMap[typeAtk]][typesMap[typeDef]];
     return efficiency;
 }
-
-int Pokemon::howMuchFaster(Pokemon *slowest)
-{
-    return getItsSpeed()/slowest->getItsSpeed();
-}

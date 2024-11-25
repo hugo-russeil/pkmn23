@@ -185,8 +185,10 @@ void Game::gameLoop()
                 while (std::cin.get() != '\n');
                 if (second->getIsHuman()) {
                     second->choosePokemon();
+                    displayBattle(player1, player2);
                 } else {
                     second->botChoosePokemon(first->getItsTeam().at(0), botBehaviour);
+                    displayBattle(player1, player2);
                 }
                 continue; // Restart turn with new Pokémon
             }
@@ -205,8 +207,10 @@ void Game::gameLoop()
                 while (std::cin.get() != '\n');
                 if (first->getIsHuman()) {
                     first->choosePokemon();
+                    displayBattle(player1, player2);
                 } else {
                     first->botChoosePokemon(second->getItsTeam().at(0), botBehaviour);
+                    displayBattle(player1, player2);
                 }
             }
         }
@@ -410,15 +414,14 @@ void Game::redrawPokemon(Trainer* player1, Trainer* player2)
 }
 
 void Game::attack(Trainer *attacker, Trainer *defender)
-{   
+{
+
     if(defender->getItsTeam().at(0)->getItsHp() > 0 && attacker->getItsTeam().at(0)->getItsHp() > 0){
 
         // Prepare random engine for the random value
         std::random_device rd;
         std::default_random_engine eng(rd());
         std::uniform_real_distribution<float> distr(0.850980392, 1.0); // 217 - 255, then divided by 255
-
-        std::cout << attacker->getItsName() << "'s " << attacker->getItsTeam().at(0)->getItsName() << " attacks " << defender->getItsName() << "'s " <<  defender->getItsTeam().at(0)->getItsName() << std::endl;
 
         int level = 50; // To be implemented
         int basePower = 50; // To be implemented
@@ -430,17 +433,18 @@ void Game::attack(Trainer *attacker, Trainer *defender)
 
         int damage = ((((2*level/5 + 2)*atk*basePower/def)/50)+2)*random*STAB*typeEfficacity;
 
-        if(typeEfficacity == 0) std::cout << "It doesn't affect its opponent !" << std::endl;
+        std::cout << attacker->getItsTeam().at(0)->getItsName() << " uses " << "[attack]" << " !" << std::endl; // TODO : Add attack name
+        if(typeEfficacity == 0) std::cout << "It doesn't affect " << defender->getItsTeam().at(0)->getItsName() << " !" << std::endl;
         else if(typeEfficacity == 0.5) std::cout << "It's not very effective !" << std::endl;
         else if(typeEfficacity == 2) std::cout << "It's very effective !" << std::endl;
 
+        // Give xp if the attack is a one hit kill
         if(defender->getItsTeam().at(0)->getItsHp() == defender->getItsTeam().at(0)->getItsMaxHp() && damage >= defender->getItsTeam().at(0)->getItsHp()){
             attacker->gainXp(3);
             defender->looseXp(3);
         }
         defender->getItsTeam().at(0)->takeDamage(damage);
         while (std::cin.get()!='\n');
-        //CLEAR;
     }
 }
 

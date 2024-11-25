@@ -97,11 +97,6 @@ public:
      */
     void displayAvgTeamSpeedForType(std::string type);
     /**
-     * @brief compareTrainers compares two trainers based on various statistics of their pokemons and themselves, and displays in the consloe the comparaisons and the most likely winner of the upcomming battle
-     * @param defender the trainer to compare the trainer on which the method is used to
-     */
-    void compareTrainers(Trainer* defender);
-    /**
      * @brief catchPokemon adds a pokemon to the team of the trainer
      * @param nb the pokedex number of the pokemon to be added
      */

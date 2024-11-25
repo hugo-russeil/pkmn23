@@ -112,7 +112,6 @@ void Game::gameLoop()
     while(true){
         if(playerNb > 0 && player1->getIsHuman() == true) player1->interBattleMenu(0);
         if(playerNb > 1 && player2->getIsHuman() == true) player2->interBattleMenu(0);
-        player1->compareTrainers(player2);
         if (player1->getItsLevel() > player2->getItsLevel() ||
             (player1->getItsLevel() == player2->getItsLevel() &&
              player1->getItsXp() > player2->getItsXp())) {

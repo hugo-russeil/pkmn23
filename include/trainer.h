@@ -33,6 +33,7 @@ public:
      * @param name the trainer's name
      */
     Trainer(std::string name);
+    
     //getters
     /**
      * @brief getItsName returns the trainer's name
@@ -59,11 +60,6 @@ public:
      * @return true if the trainer is human, false if he is a bot
      */
     bool getIsHuman();
-    /**
-     * @brief getItsAvgTeamSpeed return the average speed of the pokemons in the trainer's team
-     * @return the average speed of the pokemons in the trainer's team
-     */
-    int getItsAvgTeamSpeed();
 
     //setters
     /**
@@ -86,16 +82,6 @@ public:
      * @param xp the amount of xp to take away from the trainer
      */
     void looseXp(int xp);
-    //display
-    /**
-     * @brief displayAvgTeamSpeed displays the average speed of the trainer's pokemons in the console
-     */
-    void displayAvgTeamSpeed();
-    /**
-     * @brief displayAvgTeamSpeedForType displays the average speed of the trainer's pokemons of a defined type in the console
-     * @param type the type for which the average speed should be displayed
-     */
-    void displayAvgTeamSpeedForType(std::string type);
     /**
      * @brief catchPokemon adds a pokemon to the team of the trainer
      * @param nb the pokedex number of the pokemon to be added

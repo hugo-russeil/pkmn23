@@ -110,44 +110,6 @@ void Trainer::catchPokemon(int nb) {
     Trainer::gainXp(1);
 }
 
-int Trainer::getItsAvgTeamSpeed()
-{
-    int avg = 0;
-    for (Pokemon* pokemon : itsTeam) {
-        avg += pokemon->getItsSpeed();
-    }
-    avg = avg/6;
-    return avg;
-}
-
-void Trainer::displayAvgTeamSpeed()
-{
-    std::cout << "the average speed of  " << itsName << "'s team is " << getItsAvgTeamSpeed() << std::endl;
-    std::cout << std::endl;
-    while (std::cin.get()!='\n');
-    CLEAR;
-}
-
-void Trainer::displayAvgTeamSpeedForType(std::string type)
-{
-    int avg = 0;
-    int count = 0;
-    for (Pokemon* pokemon : itsTeam) {
-        if(pokemon->getItsType() == type){
-            avg += pokemon->getItsSpeed();
-            count++;
-        }
-    }
-    if(count != 0){
-        avg = avg/count;
-        std::cout << "The average speed of  " << itsName << "'s team for the " << type << " type is " << avg << std::endl;
-        std::cout << std::endl;
-    } else std::cout << itsName << " has no pokemon of "  << type << " type" << std::endl << std::endl;
-    while (std::cin.get()!='\n');
-    CLEAR;
-
-}
-
 bool Trainer::transferPokemon(){
     if(itsXp >= 2){
         int index = this->teamMenu();
@@ -542,9 +504,6 @@ int Trainer::teamMenu(int selected)
         return result;
     }
 }
-
-
-
 
 int Trainer::interBattleMenu(int selected)
 {

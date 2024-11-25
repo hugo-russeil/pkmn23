@@ -54,7 +54,7 @@ std::vector<Pokemon *> Trainer::getItsTeam()
 }
 
 void Trainer::catchPokemon(int nb) {
-    // Step 1: Read the JSON file
+    // Read the JSON file
     std::ifstream file("pokemons.json");
     if (!file) {
         std::cout << "Failed to open the pokemons JSON file." << std::endl;
@@ -66,14 +66,14 @@ void Trainer::catchPokemon(int nb) {
     buffer << file.rdbuf();
     file.close();
 
-    // Step 2: Parse the JSON content
+    // Parse the JSON content
     jsonHandler json = jsonHandler::parse(buffer.str());
     if (json.type != jsonHandler::Type::ARRAY) {
         std::cout << "Invalid JSON format: Expected an array of Pokémon." << std::endl;
         return;
     }
 
-    // Step 3: Access the Pokémon at index `nb`
+    // Access the Pokémon at index `nb`
     if (nb < 0 || nb >= json.array.size()) {
         std::cout << "Invalid Pokémon index: " << nb << std::endl;
         return;
@@ -85,7 +85,7 @@ void Trainer::catchPokemon(int nb) {
         return;
     }
 
-    // Step 4: Extract Pokémon details
+    // Extract Pokémon details
     int id = pokemonData.object["id"].numberValue;
     std::string name = pokemonData.object["name"].stringValue;
     std::string type = pokemonData.object["type"].stringValue;
@@ -102,11 +102,11 @@ void Trainer::catchPokemon(int nb) {
     int def = stats.object["defense"].numberValue;
     float speed = stats.object["speed"].numberValue;
 
-    // Step 5: Create the Pokémon object and add it to the team
+    // Create the Pokémon object and add it to the team
     Pokemon* pokemon = new Pokemon(id, name, sprite, hp, atk, def, speed, type);
     Trainer::itsTeam.push_back(pokemon);
 
-    // Step 6: Gain XP
+    // Gain XP
     Trainer::gainXp(1);
 }
 
@@ -226,7 +226,7 @@ void Trainer::healTeam()
 }
 
 void Trainer::saveTrainer() {
-    // Step 1: Read the existing JSON save file
+    // Read the existing JSON save file
     std::ifstream saveFile("saveGames.json");
     jsonHandler jsonData(jsonHandler::Type::ARRAY); // Assume an array of trainers
 
@@ -248,13 +248,13 @@ void Trainer::saveTrainer() {
         jsonData = jsonHandler(jsonHandler::Type::ARRAY);
     }
 
-    // Step 2: Check if the JSON data is indeed an array
+    // Check if the JSON data is indeed an array
     if (jsonData.type != jsonHandler::Type::ARRAY) {
         std::cerr << "Invalid JSON format: Expected an array for save data." << std::endl;
         return;
     }
 
-    // Step 3: Update or add the trainer's profile in the JSON array
+    // Update or add the trainer's profile in the JSON array
     bool trainerFound = false;
     for (auto& trainer : jsonData.array) {
         if (trainer.type == jsonHandler::Type::OBJECT && 
@@ -296,7 +296,7 @@ void Trainer::saveTrainer() {
         jsonData.array.push_back(newTrainer);
     }
 
-    // Step 4: Write the updated JSON data back to the file
+    // Write the updated JSON data back to the file
     std::ofstream outputFile("saveGames.json", std::ios::trunc);  // Truncate mode for writing
     if (outputFile.is_open()) {
         // Convert jsonData back to a string
@@ -309,7 +309,7 @@ void Trainer::saveTrainer() {
 }
 
 Trainer* Trainer::loadTrainer(std::string playerName) {
-    // Step 1: Read the existing JSON save file
+    // Read the existing JSON save file
     std::ifstream saveFile("saveGames.json");
     if (!saveFile) {
         std::cout << "Unable to open the save game file.\n";
@@ -347,7 +347,7 @@ Trainer* Trainer::loadTrainer(std::string playerName) {
         return nullptr;
     }
 
-    // Step 2: Search for the trainer with the given playerName
+    // Search for the trainer with the given playerName
     for (auto& trainer : jsonData.array) {
         if (trainer.type == jsonHandler::Type::OBJECT && trainer.object["name"].stringValue == playerName) {
             // Trainer found, extract the data
@@ -379,7 +379,7 @@ Trainer* Trainer::loadTrainer(std::string playerName) {
         }
     }
 
-    // Step 3: If the trainer is not found, create a new trainer with default values
+    // If the trainer is not found, create a new trainer with default values
     std::cout << "Trainer profile not found." << std::endl;
     Trainer* newTrainer = new Trainer(playerName);
     newTrainer->setLevel(1);

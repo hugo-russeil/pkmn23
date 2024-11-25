@@ -146,69 +146,72 @@ void Game::gameLoop()
             }
         }
         displayBattle(player1, player2);
-        while(player1->hasTrainerLost() == false && player2->hasTrainerLost() == false){
-            Trainer* fastest;
-            Trainer* slowest;
-            int moves;
-            if(player1->getItsTeam().at(0)->getItsSpeed() > player2->getItsTeam().at(0)->getItsSpeed()){
-                moves = player1->getItsTeam().at(0)->howMuchFaster(player2->getItsTeam().at(0));
-                fastest = player1;
-                slowest = player2;
-            }
-            else if(player1->getItsTeam().at(0)->getItsSpeed() < player2->getItsTeam().at(0)->getItsSpeed()){
-                moves = player2->getItsTeam().at(0)->howMuchFaster(player1->getItsTeam().at(0));
-                fastest = player2;
-                slowest = player1;
-            }
-            else if(player1->getItsTeam().at(0)->getItsSpeed() == player2->getItsTeam().at(0)->getItsSpeed()){
-                if(player1->getItsTeam().at(0)->getItsAtk() > player2->getItsTeam().at(0)->getItsAtk()){
-                    moves = 1;
-                    fastest = player1;
-                    slowest = player2;
+        while (!player1->hasTrainerLost() && !player2->hasTrainerLost()) {
+            Trainer* first;
+            Trainer* second;
+
+            // Determine turn order
+            if (player1->getItsTeam().at(0)->getItsSpeed() > player2->getItsTeam().at(0)->getItsSpeed()) {
+                first = player1;
+                second = player2;
+            } else if (player1->getItsTeam().at(0)->getItsSpeed() < player2->getItsTeam().at(0)->getItsSpeed()) {
+                first = player2;
+                second = player1;
+            } else {
+                // Coin flip for tie-breaker
+                std::random_device rd;
+                std::default_random_engine eng(rd());
+                std::uniform_int_distribution<int> coinFlip(0, 1);
+
+                if (coinFlip(eng) == 0) {
+                    first = player1;
+                    second = player2;
+                } else {
+                    first = player2;
+                    second = player1;
                 }
             }
-            while(player1->getItsTeam().at(0)->getItsHp() > 0 && player2->getItsTeam().at(0)->getItsHp() > 0){
-                for(int i = moves; i>0; i--){
-                    attack(fastest, slowest);
-                    #ifdef _WIN32
-                    updateDisplayBattle(player1, player2);
-                    #else
-                    displayBattle(player1, player2);
-                    #endif
+
+            // First Pokémon attacks
+            attack(first, second);
+            #ifdef _WIN32
+            updateDisplayBattle(player1, player2);
+            #else
+            displayBattle(player1, player2);
+            #endif
+
+            // Check if the second Pokémon fainted
+            if (second->getItsTeam().at(0)->getItsHp() <= 0) {
+                std::cout << second->getItsTeam().at(0)->getItsName() << " fainted!\n" << std::endl;
+                while (std::cin.get() != '\n');
+                if (second->getIsHuman()) {
+                    second->choosePokemon();
+                } else {
+                    second->botChoosePokemon(first->getItsTeam().at(0), botBehaviour);
                 }
-                attack(slowest, fastest);
-                    #ifdef _WIN32
-                    updateDisplayBattle(player1, player2);
-                    #else
-                    displayBattle(player1, player2);
-                    #endif
+                continue; // Restart turn with new Pokémon
             }
-            if(player1->getItsTeam().at(0)->getItsHp() <= 0){
-                #if defined __unix__ || __APPLE__
-                displayBattle(player1, player2);
-                #endif
-                std::cout << player1->getItsTeam().at(0)->getItsName() << " fainted ! \n" << std::endl;
-                while (std::cin.get()!='\n');
-                if(player1->getIsHuman() == true) player1->choosePokemon();
-                else player1->botChoosePokemon(player2->getItsTeam().at(0), botBehaviour);
-                #ifdef _WIN32
-                redrawPokemon(player1, player2);
-                #endif
-            }
-            else{
-                #if defined __unix__ || __APPLE__
-                displayBattle(player1, player2);
-                #endif
-                while (std::cin.get()!='\n');
-                std::cout << player2->getItsTeam().at(0)->getItsName() << " fainted ! \n" << std::endl;
-                while (std::cin.get()!='\n');
-                if(player2->getIsHuman() == true) player2->choosePokemon();
-                else player2->botChoosePokemon(player1->getItsTeam().at(0), botBehaviour);
-                #ifdef _WIN32
-                redrawPokemon(player1, player2);
-                #endif
+
+            // Second Pokémon retaliates
+            attack(second, first);
+            #ifdef _WIN32
+            updateDisplayBattle(player1, player2);
+            #else
+            displayBattle(player1, player2);
+            #endif
+
+            // Check if the first Pokémon fainted
+            if (first->getItsTeam().at(0)->getItsHp() <= 0) {
+                std::cout << first->getItsTeam().at(0)->getItsName() << " fainted!\n" << std::endl;
+                while (std::cin.get() != '\n');
+                if (first->getIsHuman()) {
+                    first->choosePokemon();
+                } else {
+                    first->botChoosePokemon(second->getItsTeam().at(0), botBehaviour);
+                }
             }
         }
+
         if(!player1->hasTrainerLost()) std::cout << player1->getItsName() << " has won the battle !" << std::endl;
         else std::cout << player2->getItsName() << " has won the battle !" << std::endl;
         while (std::cin.get()!='\n');
@@ -219,7 +222,7 @@ void Game::gameLoop()
 
         player1->healTeam();
         player2->healTeam();
-    }
+   }
 }
 
 void Game::displayBattle(Trainer *player1, Trainer *player2)

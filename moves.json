@@ -1,0 +1,87 @@
+[
+    {
+        "name": "Tackle",
+        "basePower": 40,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 35,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Scratch",
+        "basePower": 40,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 35,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Growl",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 40,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Attack",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Ember",
+        "basePower": 40,
+        "accuracy": 100,
+        "type": "Fire",
+        "category": "Special",
+        "pp": 25,
+        "statusModifier": "Burn",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 10,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Leer",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Defense",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    }
+]

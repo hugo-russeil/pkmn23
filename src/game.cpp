@@ -19,7 +19,6 @@ void Game::gameLoop()
 {
     std::string name;
     int playerNb = 3;
-    int botBehaviour = -1;
     Trainer *player1 = nullptr, *player2 = nullptr;
 
     std::random_device rd;
@@ -46,14 +45,6 @@ void Game::gameLoop()
                 std::cout << "Select players number[0-2]: " << std::endl;
                 std::cin >> playerNb;
                 CLEAR;
-            }
-            if(playerNb < 2){
-                while(botBehaviour != 0 && botBehaviour != 1){
-                    std::cout << "Choose a behavior for bots" << std::endl << "[0]: Random" << std::endl << "[1]: Mindful" << std::endl;
-                    std::cin >> botBehaviour;
-                    CLEAR;
-                }
-
             }
             if(playerNb > 0){
                 std::cout << "Enter name for player 1: " << std::endl;
@@ -97,11 +88,6 @@ void Game::gameLoop()
             for(int i = 0; i < 6; i++){
                 player2->catchPokemon(distr(eng));
             }
-            while(botBehaviour != 0 && botBehaviour != 1){
-                std::cout << "Choose a behavior for bots" << std::endl << "[0]: Random" << std::endl << "[1]: Mindful" << std::endl;
-                std::cin >> botBehaviour;
-                CLEAR;
-            }
         }
     }
 
@@ -116,17 +102,17 @@ void Game::gameLoop()
             (player1->getItsLevel() == player2->getItsLevel() &&
              player1->getItsXp() > player2->getItsXp())) {
             if(player1->getIsHuman() == true) player1->choosePokemon();
-            else player1->botChoosePokemon(player2->getItsTeam().at(0), botBehaviour);
+            else player1->botChoosePokemon(player2->getItsTeam().at(0));
             if(player2->getIsHuman() == true) player2->choosePokemon();
-            else player2->botChoosePokemon(player1->getItsTeam().at(0), botBehaviour);
+            else player2->botChoosePokemon(player1->getItsTeam().at(0));
 
         } else if (player1->getItsLevel() < player2->getItsLevel() ||
                    (player1->getItsLevel() == player2->getItsLevel() &&
                     player1->getItsXp() < player2->getItsXp())) {
             if(player2->getIsHuman() == true) player2->choosePokemon();
-            else player2->botChoosePokemon(player1->getItsTeam().at(0), botBehaviour);
+            else player2->botChoosePokemon(player1->getItsTeam().at(0));
             if(player1->getIsHuman() == true) player1->choosePokemon();
-            else player1->botChoosePokemon(player2->getItsTeam().at(0), botBehaviour);
+            else player1->botChoosePokemon(player2->getItsTeam().at(0));
         } else {
             std::random_device rd;
             std::default_random_engine eng(rd());
@@ -134,14 +120,14 @@ void Game::gameLoop()
 
             if (distr(eng) == 1) {
                 if(player1->getIsHuman() == true) player1->choosePokemon();
-                else player1->botChoosePokemon(player2->getItsTeam().at(0), botBehaviour);
+                else player1->botChoosePokemon(player2->getItsTeam().at(0));
                 if(player2->getIsHuman() == true) player2->choosePokemon();
-                else player2->botChoosePokemon(player1->getItsTeam().at(0), botBehaviour);
+                else player2->botChoosePokemon(player1->getItsTeam().at(0));
             } else {
                 if(player2->getIsHuman() == true) player2->choosePokemon();
-                else player2->botChoosePokemon(player1->getItsTeam().at(0), botBehaviour);
+                else player2->botChoosePokemon(player1->getItsTeam().at(0));
                 if(player1->getIsHuman() == true) player1->choosePokemon();
-                else player1->botChoosePokemon(player2->getItsTeam().at(0), botBehaviour);
+                else player1->botChoosePokemon(player2->getItsTeam().at(0));
             }
         }
         displayBattle(player1, player2);
@@ -187,7 +173,7 @@ void Game::gameLoop()
                     second->choosePokemon();
                     displayBattle(player1, player2);
                 } else {
-                    second->botChoosePokemon(first->getItsTeam().at(0), botBehaviour);
+                    second->botChoosePokemon(first->getItsTeam().at(0));
                     displayBattle(player1, player2);
                 }
                 continue; // Restart turn with new Pokémon
@@ -209,7 +195,7 @@ void Game::gameLoop()
                     first->choosePokemon();
                     displayBattle(player1, player2);
                 } else {
-                    first->botChoosePokemon(second->getItsTeam().at(0), botBehaviour);
+                    first->botChoosePokemon(second->getItsTeam().at(0));
                     displayBattle(player1, player2);
                 }
             }

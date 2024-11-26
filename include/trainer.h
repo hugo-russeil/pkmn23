@@ -99,9 +99,8 @@ public:
     /**
      * @brief botChoosePokemon method that lets a bot trainer choose a pokemon to be sent into battle
      * @param opponentsPokemon the bot's opponent's pokemon
-     * @param behaviour the behaviour set for the bots, that will determine the degree of reflection in the bot's choice
      */
-    void botChoosePokemon(Pokemon* opponentsPokemon, int behaviour);
+    void botChoosePokemon(Pokemon* opponentsPokemon);
     /**
      * @brief sendToBattle sends a pokemon to battle
      * @param teamRank the rank in the team vector of the pokemon to be sent into battle

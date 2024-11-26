@@ -379,50 +379,38 @@ void Trainer::choosePokemon()
     } else return;
 }
 
-void Trainer::botChoosePokemon(Pokemon *opponentsPokemon, int behaviour)
+void Trainer::botChoosePokemon(Pokemon *opponentsPokemon)
 {
     if(!this->hasTrainerLost()){
-
-        if(behaviour == 0){
-            int index = 0;
-            //Sends whatever pokemon it finds in the bot's team.
-            for (Pokemon* pokemon : getItsTeam()){
-                if(pokemon->getItsHp() > 0){
-                    sendToBattle(index);
-                    return;
-                }
-                index++;
+        
+        int index = 0;
+        //Searches for a pokemon with a type advantage over the opponent
+        for (Pokemon* pokemon : getItsTeam()){
+            if(pokemon->typeEfficacity(pokemon->getItsType(), opponentsPokemon->getItsType()) == 2 && pokemon->getItsHp() > 0){
+                sendToBattle(index);
+                return;
             }
+            index++;
         }
-        else{
-            int index = 0;
-            //Searches for a pokemon with a type advantage over the opponent
-            for (Pokemon* pokemon : getItsTeam()){
-                if(pokemon->typeEfficacity(pokemon->getItsType(), opponentsPokemon->getItsType()) == 2 && pokemon->getItsHp() > 0){
-                    sendToBattle(index);
-                    return;
-                }
-                index++;
+        //If it doesn't find one, searches for a pokemon with no type weakness towards the opponent
+        index = 0;
+        for (Pokemon* pokemon : getItsTeam()){
+            if(pokemon->typeEfficacity(pokemon->getItsType(), opponentsPokemon->getItsType()) == 1 && pokemon->getItsHp() > 0){
+                sendToBattle(index);
+                return;
             }
-            //If it doesn't find one, searches for a pokemon with no type weakness towards the opponent
-            index = 0;
-            for (Pokemon* pokemon : getItsTeam()){
-                if(pokemon->typeEfficacity(pokemon->getItsType(), opponentsPokemon->getItsType()) == 1 && pokemon->getItsHp() > 0){
-                    sendToBattle(index);
-                    return;
-                }
-                index++;
-            }
-            index = 0;
-             //If it doesn't find one, searches for a pokemon...
-            for (Pokemon* pokemon : getItsTeam()){
-                if(pokemon->getItsHp() > 0){
-                    sendToBattle(index);
-                    return;
-                }
-                index++;
-            }
+            index++;
         }
+        index = 0;
+            //If it doesn't find one, searches for a pokemon...
+        for (Pokemon* pokemon : getItsTeam()){
+            if(pokemon->getItsHp() > 0){
+                sendToBattle(index);
+                return;
+            }
+            index++;
+        }
+        
     } else return;
 }
 

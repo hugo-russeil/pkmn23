@@ -126,9 +126,7 @@ void Trainer::healTeam()
 {
     if(this->getIsHuman() == true){
         for (Pokemon* pokemon : itsTeam) {
-            if(pokemon->getItsHp() > 0){
-                pokemon->heal();
-            }
+            pokemon->heal();
         }
     }
     else{

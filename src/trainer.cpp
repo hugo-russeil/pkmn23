@@ -17,8 +17,6 @@
 Trainer::Trainer(std::string name)
 {
     itsName = name;
-    itsXp = 0;
-    itsLvl = 1;
     itsTeam = std::vector<Pokemon*>();
     isHuman = false;
 }
@@ -36,16 +34,6 @@ void Trainer::setIsHuman(bool isHuman)
 bool Trainer::getIsHuman()
 {
     return isHuman;
-}
-
-int Trainer::getItsLevel()
-{
-    return itsLvl;
-}
-
-int Trainer::getItsXp()
-{
-    return itsXp;
 }
 
 std::vector<Pokemon *> Trainer::getItsTeam()
@@ -106,54 +94,22 @@ void Trainer::catchPokemon(int nb) {
     Pokemon* pokemon = new Pokemon(id, name, sprite, hp, atk, def, speed, type);
     Trainer::itsTeam.push_back(pokemon);
 
-    // Gain XP
-    Trainer::gainXp(1);
 }
 
 bool Trainer::transferPokemon(){
-    if(itsXp >= 2){
-        int index = this->teamMenu();
-        std::cout << itsTeam.at(index)->getItsName() << " has been transfered !" << std::endl;
-        delete itsTeam.at(index);
-        itsTeam.erase(itsTeam.begin() + index);
-        looseXp(1); //loose three but regains one with catchPokemon()
-        std::random_device rd;
-        std::default_random_engine eng(rd());
-        std::uniform_int_distribution<int> distr(0, 151);
-        catchPokemon(distr(eng));
-        std::cout << "It was replaced with a " << itsTeam.at(5)->getItsName() << std::endl;
-        std::cout << std::endl;
-        while (std::cin.get()!='\n');
-        CLEAR;
-        return true;
-    }
-    else{
-        std::cout << "Not enough xp to transfer a pokemon" << std::endl;
-        std::cout << std::endl;
-        while (std::cin.get()!='\n');
-        CLEAR;
-        return false;
-    }
-}
-
-void Trainer::gainXp(int xp)
-{
-    itsXp += xp;
-    if(itsXp > 10){
-        itsXp -= 10;
-        itsLvl++;
-    }
-}
-
-void Trainer::setLevel(int lvl)
-{
-    itsLvl = lvl;
-}
-
-void Trainer::looseXp(int xp)
-{
-    itsXp -= xp;
-    if(itsXp < 0) itsXp = 0;
+    int index = this->teamMenu();
+    std::cout << itsTeam.at(index)->getItsName() << " has been transfered !" << std::endl;
+    delete itsTeam.at(index);
+    itsTeam.erase(itsTeam.begin() + index);
+    std::random_device rd;
+    std::default_random_engine eng(rd());
+    std::uniform_int_distribution<int> distr(0, 151);
+    catchPokemon(distr(eng));
+    std::cout << "It was replaced with a " << itsTeam.at(5)->getItsName() << std::endl;
+    std::cout << std::endl;
+    while (std::cin.get()!='\n');
+    CLEAR;
+    return true;
 }
 
 bool Trainer::hasTrainerLost()
@@ -223,8 +179,6 @@ void Trainer::saveTrainer() {
             trainer.object["name"].stringValue == itsName) {
             // Update existing trainer's data with correctly ordered keys
             trainer.object["name"] = jsonHandler(itsName);  // Ensure 'name' is the first key
-            trainer.object["level"] = jsonHandler(static_cast<int>(itsLvl)); // Store level as an integer
-            trainer.object["xp"] = jsonHandler(static_cast<int>(itsXp));     // Store XP as an integer
 
             // Update Pokémon list
             jsonHandler pokemonArray(jsonHandler::Type::ARRAY);
@@ -244,8 +198,6 @@ void Trainer::saveTrainer() {
 
         // Explicitly set keys in the desired order
         newTrainer.object["name"] = jsonHandler(itsName);
-        newTrainer.object["level"] = jsonHandler(static_cast<int>(itsLvl)); // Store level as an integer
-        newTrainer.object["xp"] = jsonHandler(static_cast<int>(itsXp));     // Store XP as an integer
 
         // Create the Pokémon array
         jsonHandler pokemonArray(jsonHandler::Type::ARRAY);
@@ -277,8 +229,6 @@ Trainer* Trainer::loadTrainer(std::string playerName) {
         std::cout << "Unable to open the save game file.\n";
         // Create a new trainer with default values if the file can't be opened
         Trainer* trainer = new Trainer(playerName);
-        trainer->setLevel(1);
-        trainer->gainXp(0);
         std::random_device rd;
         std::default_random_engine eng(rd());
         std::uniform_int_distribution<int> distr(1, 151); // Ensuring valid Pokémon range
@@ -314,12 +264,8 @@ Trainer* Trainer::loadTrainer(std::string playerName) {
         if (trainer.type == jsonHandler::Type::OBJECT && trainer.object["name"].stringValue == playerName) {
             // Trainer found, extract the data
             std::string name = trainer.object["name"].stringValue;
-            int level = static_cast<int>(trainer.object["level"].numberValue);
-            int xp = static_cast<int>(trainer.object["xp"].numberValue);
 
             Trainer* loadedTrainer = new Trainer(name);
-            loadedTrainer->setLevel(level);
-            loadedTrainer->gainXp(xp);
 
             // Extract Pokémon numbers
             if (trainer.object["pokemon"].type == jsonHandler::Type::ARRAY) {
@@ -344,8 +290,6 @@ Trainer* Trainer::loadTrainer(std::string playerName) {
     // If the trainer is not found, create a new trainer with default values
     std::cout << "Trainer profile not found." << std::endl;
     Trainer* newTrainer = new Trainer(playerName);
-    newTrainer->setLevel(1);
-    newTrainer->gainXp(0);
 
     // Generate 6 random Pokémon for the new trainer
     std::random_device rd;
@@ -410,7 +354,7 @@ void Trainer::botChoosePokemon(Pokemon *opponentsPokemon)
             }
             index++;
         }
-        
+
     } else return;
 }
 

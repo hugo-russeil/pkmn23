@@ -98,22 +98,6 @@ void Game::gameLoop()
     while(true){
         if(playerNb > 0 && player1->getIsHuman() == true) player1->interBattleMenu(0);
         if(playerNb > 1 && player2->getIsHuman() == true) player2->interBattleMenu(0);
-        if (player1->getItsLevel() > player2->getItsLevel() ||
-            (player1->getItsLevel() == player2->getItsLevel() &&
-             player1->getItsXp() > player2->getItsXp())) {
-            if(player1->getIsHuman() == true) player1->choosePokemon();
-            else player1->botChoosePokemon(player2->getItsTeam().at(0));
-            if(player2->getIsHuman() == true) player2->choosePokemon();
-            else player2->botChoosePokemon(player1->getItsTeam().at(0));
-
-        } else if (player1->getItsLevel() < player2->getItsLevel() ||
-                   (player1->getItsLevel() == player2->getItsLevel() &&
-                    player1->getItsXp() < player2->getItsXp())) {
-            if(player2->getIsHuman() == true) player2->choosePokemon();
-            else player2->botChoosePokemon(player1->getItsTeam().at(0));
-            if(player1->getIsHuman() == true) player1->choosePokemon();
-            else player1->botChoosePokemon(player2->getItsTeam().at(0));
-        } else {
             std::random_device rd;
             std::default_random_engine eng(rd());
             std::uniform_int_distribution<int> distr(1, 2);
@@ -129,7 +113,6 @@ void Game::gameLoop()
                 if(player1->getIsHuman() == true) player1->choosePokemon();
                 else player1->botChoosePokemon(player2->getItsTeam().at(0));
             }
-        }
         displayBattle(player1, player2);
         while (!player1->hasTrainerLost() && !player2->hasTrainerLost()) {
             Trainer* first;
@@ -424,11 +407,6 @@ void Game::attack(Trainer *attacker, Trainer *defender)
         else if(typeEfficacity == 0.5) std::cout << "It's not very effective !" << std::endl;
         else if(typeEfficacity == 2) std::cout << "It's very effective !" << std::endl;
 
-        // Give xp if the attack is a one hit kill
-        if(defender->getItsTeam().at(0)->getItsHp() == defender->getItsTeam().at(0)->getItsMaxHp() && damage >= defender->getItsTeam().at(0)->getItsHp()){
-            attacker->gainXp(3);
-            defender->looseXp(3);
-        }
         defender->getItsTeam().at(0)->takeDamage(damage);
         while (std::cin.get()!='\n');
     }

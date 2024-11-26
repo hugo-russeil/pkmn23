@@ -12,14 +12,6 @@ class Trainer
      */
     std::string itsName;
     /**
-     * @brief itsLvl the trainer's level
-     */
-    int itsLvl;
-    /**
-     * @brief itsXp the trainer's xp
-     */
-    int itsXp;
-    /**
      * @brief itsTeam the trainer's pokemon team
      */
     std::vector<Pokemon*> itsTeam;
@@ -41,16 +33,6 @@ public:
      */
     std::string getItsName();
     /**
-     * @brief getItsLevel returns the trainer's level
-     * @return the trainer's level
-     */
-    int getItsLevel();
-    /**
-     * @brief getItsLevel returns the trainer's xp
-     * @return the trainer's xp
-     */
-    int getItsXp();
-    /**
      * @brief getItsTeam returns the trainer's team
      * @return the trainer's team
      */
@@ -67,21 +49,6 @@ public:
      * @param isHuman a boolean, indicating if the trainer is a human player
      */
     void setIsHuman(bool isHuman);
-    /**
-     * @brief gainXp adds xp to a trainer
-     * @param xp the amount of xp to add to the trainer
-     */
-    void gainXp(int xp);
-    /**
-     * @brief setLevel sets the trainer's level
-     * @param lvl the level to give to the trainer
-     */
-    void setLevel(int lvl);
-    /**
-     * @brief looseXp decreases a trainer's xp
-     * @param xp the amount of xp to take away from the trainer
-     */
-    void looseXp(int xp);
     /**
      * @brief catchPokemon adds a pokemon to the team of the trainer
      * @param nb the pokedex number of the pokemon to be added

@@ -98,21 +98,12 @@ void Game::gameLoop()
     while(true){
         if(playerNb > 0 && player1->getIsHuman() == true) player1->interBattleMenu(0);
         if(playerNb > 1 && player2->getIsHuman() == true) player2->interBattleMenu(0);
-            std::random_device rd;
-            std::default_random_engine eng(rd());
-            std::uniform_int_distribution<int> distr(1, 2);
+        
 
-            if (distr(eng) == 1) {
-                if(player1->getIsHuman() == true) player1->choosePokemon();
-                else player1->botChoosePokemon(player2->getItsTeam().at(0));
-                if(player2->getIsHuman() == true) player2->choosePokemon();
-                else player2->botChoosePokemon(player1->getItsTeam().at(0));
-            } else {
-                if(player2->getIsHuman() == true) player2->choosePokemon();
-                else player2->botChoosePokemon(player1->getItsTeam().at(0));
-                if(player1->getIsHuman() == true) player1->choosePokemon();
-                else player1->botChoosePokemon(player2->getItsTeam().at(0));
-            }
+        // Send the first Pokémon from each player's team into battle
+        player1->sendToBattle(0);
+        player2->sendToBattle(0);
+
         displayBattle(player1, player2);
         while (!player1->hasTrainerLost() && !player2->hasTrainerLost()) {
             Trainer* first;

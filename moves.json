@@ -1,6 +1,788 @@
 [
     {
-        "name": "Tackle",
+        "name": "Placeholder",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 0,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Barrage",
+        "basePower": 15,
+        "accuracy": 85,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Hits 2-5 times in one turn"
+    },
+    {
+        "name": "Bide",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User takes damage for two turns then strikes back double"
+    },
+    {
+        "name": "Bind",
+        "basePower": 15,
+        "accuracy": 85,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Traps opponent, damaging them for 4-5 turns"
+    },
+    {
+        "name": "Bite",
+        "basePower": 60,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 25,
+        "statusModifier": "Flinch",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Body Slam",
+        "basePower": 85,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "Paralyze",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Bone Club",
+        "basePower": 65,
+        "accuracy": 85,
+        "type": "Ground",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "Flinch",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Bonemerang",
+        "basePower": 50,
+        "accuracy": 90,
+        "type": "Ground",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Hits twice in one turn"
+    },
+    {
+        "name": "Clamp",
+        "basePower": 35,
+        "accuracy": 85,
+        "type": "Water",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Traps opponent, damaging them for 4-5 turns"
+    },
+    {
+        "name": "Comet Punch",
+        "basePower": 18,
+        "accuracy": 85,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Hits 2-5 times in one turn"
+    },
+    {
+        "name": "Constrict",
+        "basePower": 10,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 35,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Speed",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May lower opponent's Speed by one stage"
+    },
+    {
+        "name": "Counter",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Fighting",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": -5,
+        "critChance": 0,
+        "specialMechanics": "When hit by a Physical Attack, user strikes back with 2x power"
+    },
+    {
+        "name": "Crabhammer",
+        "basePower": 100,
+        "accuracy": 90,
+        "type": "Water",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 10,
+        "specialMechanics": "High critical hit ratio"
+    },
+    {
+        "name": "Cut",
+        "basePower": 50,
+        "accuracy": 95,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Dig",
+        "basePower": 80,
+        "accuracy": 100,
+        "type": "Ground",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Digs underground on first turn, attacks on second"
+    },
+    {
+        "name": "Dizzy Punch",
+        "basePower": 70,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "Confuse",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May confuse opponent"
+    },
+    {
+        "name": "Double Kick",
+        "basePower": 30,
+        "accuracy": 100,
+        "type": "Fighting",
+        "category": "Physical",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Hits twice in one turn"
+    },
+    {
+        "name": "Double Slap",
+        "basePower": 15,
+        "accuracy": 85,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Hits 2-5 times in one turn"
+    },
+    {
+        "name": "Double-Edge",
+        "basePower": 120,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User receives recoil damage"
+    },
+    {
+        "name": "Drill Peck",
+        "basePower": 80,
+        "accuracy": 100,
+        "type": "Flying",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Earthquake",
+        "basePower": 100,
+        "accuracy": 100,
+        "type": "Ground",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Power is doubled if opponent is underground from using Dig"
+    },
+    {
+        "name": "Egg Bomb",
+        "basePower": 100,
+        "accuracy": 75,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Explosion",
+        "basePower": 250,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 5,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User faints"
+    },
+    {
+        "name": "Fire Punch",
+        "basePower": 75,
+        "accuracy": 100,
+        "type": "Fire",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "Burn",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May burn opponent"
+    },
+    {
+        "name": "Fissure",
+        "basePower": 0,
+        "accuracy": 30,
+        "type": "Ground",
+        "category": "Physical",
+        "pp": 5,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "One-Hit-KO, if it hits"
+    },
+    {
+        "name": "Fly",
+        "basePower": 90,
+        "accuracy": 95,
+        "type": "Flying",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Flies up on first turn, attacks on second turn"
+    },
+    {
+        "name": "Fury Attack",
+        "basePower": 15,
+        "accuracy": 85,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Hits 2-5 times in one turn"
+    },
+    {
+        "name": "Fury Swipes",
+        "basePower": 18,
+        "accuracy": 80,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Hits 2-5 times in one turn"
+    },
+    {
+        "name": "Guillotine",
+        "basePower": 0,
+        "accuracy": 30,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 5,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "One-Hit-KO, if it hits"
+    },
+    {
+        "name": "Headbutt",
+        "basePower": 70,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "Flinch",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May cause flinching"
+    },
+    {
+        "name": "High Jump Kick",
+        "basePower": 130,
+        "accuracy": 90,
+        "type": "Fighting",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "If it misses, the user loses half their HP"
+    },
+    {
+        "name": "Horn Attack",
+        "basePower": 65,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 25,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Horn Drill",
+        "basePower": 0,
+        "accuracy": 30,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 5,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "One-Hit-KO, if it hits"
+    },
+    {
+        "name": "Hyper Fang",
+        "basePower": 80,
+        "accuracy": 90,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "Flinch",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May cause flinching"
+    },
+    {
+        "name": "Ice Punch",
+        "basePower": 75,
+        "accuracy": 100,
+        "type": "Ice",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "Freeze",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May freeze opponent"
+    },
+    {
+        "name": "Jump Kick",
+        "basePower": 100,
+        "accuracy": 95,
+        "type": "Fighting",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "If it misses, the user loses half their HP"
+    },
+    {
+        "name": "Karate Chop",
+        "basePower": 50,
+        "accuracy": 100,
+        "type": "Fighting",
+        "category": "Physical",
+        "pp": 25,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 10,
+        "specialMechanics": "High critical hit ratio"
+    },
+    {
+        "name": "Leech Life",
+        "basePower": 80,
+        "accuracy": 100,
+        "type": "Bug",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User recovers half the HP inflicted on opponent"
+    },
+    {
+        "name": "Lick",
+        "basePower": 30,
+        "accuracy": 100,
+        "type": "Ghost",
+        "category": "Physical",
+        "pp": 30,
+        "statusModifier": "Paralyze",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May paralyze opponent"
+    },
+    {
+        "name": "Low Kick",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Fighting",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "The heavier the opponent, the stronger the attack"
+    },
+    {
+        "name": "Mega Kick",
+        "basePower": 120,
+        "accuracy": 75,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 5,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Mega Punch",
+        "basePower": 80,
+        "accuracy": 85,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Pay Day",
+        "basePower": 40,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Money is earned after the battle"
+    },
+    {
+        "name": "Peck",
+        "basePower": 35,
+        "accuracy": 100,
+        "type": "Flying",
+        "category": "Physical",
+        "pp": 35,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Pin Missile",
+        "basePower": 25,
+        "accuracy": 95,
+        "type": "Bug",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Hits 2-5 times in one turn"
+    },
+    {
+        "name": "Poison Sting",
+        "basePower": 15,
+        "accuracy": 100,
+        "type": "Poison",
+        "category": "Physical",
+        "pp": 35,
+        "statusModifier": "Poison",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May poison the opponent"
+    },
+    {
+        "name": "Pound",
         "basePower": 40,
         "accuracy": 100,
         "type": "Normal",
@@ -15,6 +797,108 @@
         "priority": 0,
         "critChance": 0,
         "specialMechanics": "None"
+    },
+    {
+        "name": "Quick Attack",
+        "basePower": 40,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 1,
+        "critChance": 0,
+        "specialMechanics": "User attacks first"
+    },
+    {
+        "name": "Rage",
+        "basePower": 20,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Attack",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Raises user's Attack when hit"
+    },
+    {
+        "name": "Razor Leaf",
+        "basePower": 55,
+        "accuracy": 95,
+        "type": "Grass",
+        "category": "Physical",
+        "pp": 25,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 10,
+        "specialMechanics": "High critical hit ratio"
+    },
+    {
+        "name": "Rock Slide",
+        "basePower": 75,
+        "accuracy": 90,
+        "type": "Rock",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "Flinch",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May cause flinching"
+    },
+    {
+        "name": "Rock Throw",
+        "basePower": 50,
+        "accuracy": 90,
+        "type": "Rock",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Rolling Kick",
+        "basePower": 60,
+        "accuracy": 85,
+        "type": "Fighting",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "Flinch",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May cause flinching"
     },
     {
         "name": "Scratch",
@@ -34,12 +918,420 @@
         "specialMechanics": "None"
     },
     {
-        "name": "Growl",
+        "name": "Seismic Toss",
         "basePower": 0,
         "accuracy": 100,
+        "type": "Fighting",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Inflicts damage equal to user's level"
+    },
+    {
+        "name": "Self-Destruct",
+        "basePower": 200,
+        "accuracy": 100,
         "type": "Normal",
-        "category": "Status",
-        "pp": 40,
+        "category": "Physical",
+        "pp": 5,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User faints"
+    },
+    {
+        "name": "Skull Bash",
+        "basePower": 130,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Defense",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Raises Defense on first turn, attacks on second"
+    },
+    {
+        "name": "Sky Attack",
+        "basePower": 140,
+        "accuracy": 90,
+        "type": "Flying",
+        "category": "Physical",
+        "pp": 5,
+        "statusModifier": "Flinch",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 10,
+        "specialMechanics": "Charges on first turn, attacks on second. May cause flinching. High critical hit ratio"
+    },
+    {
+        "name": "Slam",
+        "basePower": 80,
+        "accuracy": 75,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Slash",
+        "basePower": 70,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 10,
+        "specialMechanics": "High critical hit ratio"
+    },
+    {
+        "name": "Spike Cannon",
+        "basePower": 20,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Hits 2-5 times in one turn"
+    },
+    {
+        "name": "Stomp",
+        "basePower": 65,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "Flinch",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May cause flinching"
+    },
+    {
+        "name": "Strength",
+        "basePower": 80,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Struggle",
+        "basePower": 50,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 0,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Only usable when all PP are gone. Hurts the user"
+    },
+    {
+        "name": "Submission",
+        "basePower": 80,
+        "accuracy": 80,
+        "type": "Fighting",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User receives recoil damage"
+    },
+    {
+        "name": "Super Fang",
+        "basePower": 0,
+        "accuracy": 90,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Always takes off half of the opponent's HP"
+    },
+    {
+        "name": "Tackle",
+        "basePower": 40,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 35,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Take Down",
+        "basePower": 90,
+        "accuracy": 85,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User receives recoil damage"
+    },
+    {
+        "name": "Thrash",
+        "basePower": 120,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 10,
+        "statusModifier": "Confuse",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User attacks for 2-3 turns but then becomes confused"
+    },
+    {
+        "name": "Thunder Punch",
+        "basePower": 75,
+        "accuracy": 100,
+        "type": "Electrik",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "Paralyze",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May paralyze opponent"
+    },
+    {
+        "name": "Twineedle",
+        "basePower": 25,
+        "accuracy": 100,
+        "type": "Bug",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "Poison",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Hits twice in one turn. May poison opponent"
+    },
+    {
+        "name": "Vine Whip",
+        "basePower": 45,
+        "accuracy": 100,
+        "type": "Grass",
+        "category": "Physical",
+        "pp": 25,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Vise Grip",
+        "basePower": 55,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Waterfall",
+        "basePower": 80,
+        "accuracy": 100,
+        "type": "Water",
+        "category": "Physical",
+        "pp": 15,
+        "statusModifier": "Flinch",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May cause flinching"
+    },
+    {
+        "name": "Wing Attack",
+        "basePower": 60,
+        "accuracy": 100,
+        "type": "Flying",
+        "category": "Physical",
+        "pp": 35,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Wrap",
+        "basePower": 15,
+        "accuracy": 90,
+        "type": "Normal",
+        "category": "Physical",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Traps opponent, damaging them for 4-5 turns"
+    },
+    {
+        "name": "Absorb",
+        "basePower": 20,
+        "accuracy": 100,
+        "type": "Grass",
+        "category": "Special",
+        "pp": 25,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User recovers half the HP inflicted on opponent"
+    },
+    {
+        "name": "Acid",
+        "basePower": 40,
+        "accuracy": 100,
+        "type": "Poison",
+        "category": "Special",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Special Defense",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May lower opponent's Special Defense"
+    },
+    {
+        "name": "Aurora Beam",
+        "basePower": 65,
+        "accuracy": 100,
+        "type": "Ice",
+        "category": "Special",
+        "pp": 20,
         "statusModifier": "None",
         "statsModifier": {
             "amount": 1,
@@ -48,7 +1340,109 @@
         },
         "priority": 0,
         "critChance": 0,
-        "specialMechanics": "None"
+        "specialMechanics": "May lower opponent's Attack"
+    },
+    {
+        "name": "Blizzard",
+        "basePower": 110,
+        "accuracy": 70,
+        "type": "Ice",
+        "category": "Special",
+        "pp": 5,
+        "statusModifier": "Freeze",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May freeze opponent"
+    },
+    {
+        "name": "Bubble",
+        "basePower": 40,
+        "accuracy": 100,
+        "type": "Water",
+        "category": "Special",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Speed",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May lower opponent's Speed"
+    },
+    {
+        "name": "Bubble Beam",
+        "basePower": 65,
+        "accuracy": 100,
+        "type": "Water",
+        "category": "Special",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Speed",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May lower opponent's Speed"
+    },
+    {
+        "name": "Confusion",
+        "basePower": 50,
+        "accuracy": 100,
+        "type": "Psychic",
+        "category": "Special",
+        "pp": 25,
+        "statusModifier": "Confuse",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May confuse opponent"
+    },
+    {
+        "name": "Dragon Rage",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Dragon",
+        "category": "Special",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Always inflicts 40 HP damage"
+    },
+    {
+        "name": "Dream Eater",
+        "basePower": 100,
+        "accuracy": 100,
+        "type": "Psychic",
+        "category": "Special",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User recovers half the HP inflicted on a sleeping opponent"
     },
     {
         "name": "Ember",
@@ -64,8 +1458,756 @@
             "modifier": "None"
         },
         "priority": 0,
-        "critChance": 10,
+        "critChance": 0,
+        "specialMechanics": "May burn opponent"
+    },
+    {
+        "name": "Fire Blast",
+        "basePower": 110,
+        "accuracy": 85,
+        "type": "Fire",
+        "category": "Special",
+        "pp": 5,
+        "statusModifier": "Burn",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May burn opponent"
+    },
+    {
+        "name": "Fire Spin",
+        "basePower": 35,
+        "accuracy": 85,
+        "type": "Fire",
+        "category": "Special",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Traps opponent, damaging them for 4-5 turns"
+    },
+    {
+        "name": "Flamethrower",
+        "basePower": 90,
+        "accuracy": 100,
+        "type": "Fire",
+        "category": "Special",
+        "pp": 15,
+        "statusModifier": "Burn",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May burn opponent"
+    },
+    {
+        "name": "Gust",
+        "basePower": 40,
+        "accuracy": 100,
+        "type": "Flying",
+        "category": "Special",
+        "pp": 35,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Hits Pokémon using Fly/Bounce/Sky Drop with double power"
+    },
+    {
+        "name": "Hydro Pump",
+        "basePower": 110,
+        "accuracy": 80,
+        "type": "Water",
+        "category": "Special",
+        "pp": 5,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
         "specialMechanics": "None"
+    },
+    {
+        "name": "Hyper Beam",
+        "basePower": 150,
+        "accuracy": 90,
+        "type": "Normal",
+        "category": "Special",
+        "pp": 5,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User must recharge next turn"
+    },
+    {
+        "name": "Ice Beam",
+        "basePower": 90,
+        "accuracy": 100,
+        "type": "Ice",
+        "category": "Special",
+        "pp": 10,
+        "statusModifier": "Freeze",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May freeze opponent"
+    },
+    {
+        "name": "Mega Drain",
+        "basePower": 40,
+        "accuracy": 100,
+        "type": "Grass",
+        "category": "Special",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User recovers half the HP inflicted on opponent"
+    },
+    {
+        "name": "Night Shade",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Ghost",
+        "category": "Special",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Inflicts damage equal to user's level"
+    },
+    {
+        "name": "Petal Dance",
+        "basePower": 120,
+        "accuracy": 100,
+        "type": "Grass",
+        "category": "Special",
+        "pp": 10,
+        "statusModifier": "Confuse",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User attacks for 2-3 turns but then becomes confused"
+    },
+    {
+        "name": "Psybeam",
+        "basePower": 65,
+        "accuracy": 100,
+        "type": "Psychic",
+        "category": "Special",
+        "pp": 20,
+        "statusModifier": "Confuse",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May confuse opponent"
+    },
+    {
+        "name": "Psychic",
+        "basePower": 90,
+        "accuracy": 100,
+        "type": "Psychic",
+        "category": "Special",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Special Defense",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May lower opponent's Special Defense"
+    },
+    {
+        "name": "Psywave",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Psychic",
+        "category": "Special",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Inflicts damage 50-150% of user's level"
+    },
+    {
+        "name": "Razor Wind",
+        "basePower": 80,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Special",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 10,
+        "specialMechanics": "Charges on first turn, attacks on second. High critical hit ratio"
+    },
+    {
+        "name": "Sludge",
+        "basePower": 65,
+        "accuracy": 100,
+        "type": "Poison",
+        "category": "Special",
+        "pp": 20,
+        "statusModifier": "Poison",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May poison opponent"
+    },
+    {
+        "name": "Smog",
+        "basePower": 30,
+        "accuracy": 70,
+        "type": "Poison",
+        "category": "Special",
+        "pp": 20,
+        "statusModifier": "Poison",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May poison opponent"
+    },
+    {
+        "name": "Solar Beam",
+        "basePower": 120,
+        "accuracy": 100,
+        "type": "Grass",
+        "category": "Special",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Charges on first turn, attacks on second"
+    },
+    {
+        "name": "Sonic Boom",
+        "basePower": 0,
+        "accuracy": 90,
+        "type": "Normal",
+        "category": "Special",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Always inflicts 20 HP damage"
+    },
+    {
+        "name": "Surf",
+        "basePower": 90,
+        "accuracy": 100,
+        "type": "Water",
+        "category": "Special",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Hits all adjacent Pokémon"
+    },
+    {
+        "name": "Swift",
+        "basePower": 60,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Special",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Ignores Accuracy and Evasiveness"
+    },
+    {
+        "name": "Thunder",
+        "basePower": 110,
+        "accuracy": 70,
+        "type": "Electrik",
+        "category": "Special",
+        "pp": 10,
+        "statusModifier": "Paralyze",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May paralyze opponent"
+    },
+    {
+        "name": "Thunder Shock",
+        "basePower": 40,
+        "accuracy": 100,
+        "type": "Electrik",
+        "category": "Special",
+        "pp": 30,
+        "statusModifier": "Paralyze",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May paralyze opponent"
+    },
+    {
+        "name": "Thunderbolt",
+        "basePower": 90,
+        "accuracy": 100,
+        "type": "Electrik",
+        "category": "Special",
+        "pp": 15,
+        "statusModifier": "Paralyze",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May paralyze opponent"
+    },
+    {
+        "name": "Tri Attack",
+        "basePower": 80,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Special",
+        "pp": 10,
+        "statusModifier": "Paralyze/Burn/Freeze",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "May paralyze, burn or freeze opponent"
+    },
+    {
+        "name": "Water Gun",
+        "basePower": 40,
+        "accuracy": 100,
+        "type": "Water",
+        "category": "Special",
+        "pp": 25,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "None"
+    },
+    {
+        "name": "Acid Armor",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Poison",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 2,
+            "stat": "Defense",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Sharply raises user's Defense"
+    },
+    {
+        "name": "Agility",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Psychic",
+        "category": "Status",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 2,
+            "stat": "Speed",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Sharply raises user's Speed"
+    },
+    {
+        "name": "Amnesia",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Psychic",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 2,
+            "stat": "Special Defense",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Sharply raises user's Special Defense"
+    },
+    {
+        "name": "Barrier",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Psychic",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 2,
+            "stat": "Defense",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Sharply raises user's Defense"
+    },
+    {
+        "name": "Confuse Ray",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Ghost",
+        "category": "Status",
+        "pp": 10,
+        "statusModifier": "Confuse",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Confuses opponent"
+    },
+    {
+        "name": "Conversion",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Changes user's type to that of its first move"
+    },
+    {
+        "name": "Defense Curl",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 40,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Defense",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Raises user's Defense"
+    },
+    {
+        "name": "Disable",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Opponent can't use its last attack for a few turns"
+    },
+    {
+        "name": "Double Team",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Evasiveness",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Raises user's Evasiveness"
+    },
+    {
+        "name": "Flash",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Accuracy",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Lowers opponent's Accuracy"
+    },
+    {
+        "name": "Focus Energy",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "Critical Hit Ratio",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Increases critical hit ratio"
+    },
+    {
+        "name": "Glare",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 30,
+        "statusModifier": "Paralyze",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Paralyzes opponent"
+    },
+    {
+        "name": "Growl",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 40,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Attack",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Lowers opponent's Attack"
+    },
+    {
+        "name": "Growth",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Attack/Special Attack",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Raises user's Attack and Special Attack"
+    },
+    {
+        "name": "Harden",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Defense",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Raises user's Defense"
+    },
+    {
+        "name": "Haze",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Ice",
+        "category": "Status",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "All Stats",
+            "modifier": "Reset"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Resets all stat changes"
+    },
+    {
+        "name": "Hypnosis",
+        "basePower": 0,
+        "accuracy": 60,
+        "type": "Psychic",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "Sleep",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Puts opponent to sleep"
+    },
+    {
+        "name": "Kinesis",
+        "basePower": 0,
+        "accuracy": 80,
+        "type": "Psychic",
+        "category": "Status",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Accuracy",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Lowers opponent's Accuracy"
+    },
+    {
+        "name": "Leech Seed",
+        "basePower": 0,
+        "accuracy": 90,
+        "type": "Grass",
+        "category": "Status",
+        "pp": 10,
+        "statusModifier": "Leech",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Drains HP from opponent each turn"
     },
     {
         "name": "Leer",
@@ -82,6 +2224,602 @@
         },
         "priority": 0,
         "critChance": 0,
-        "specialMechanics": "None"
+        "specialMechanics": "Lowers opponent's Defense"
+    },
+    {
+        "name": "Light Screen",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Psychic",
+        "category": "Status",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "Special Defense",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Halves damage from Special attacks for 5 turns"
+    },
+    {
+        "name": "Lovely Kiss",
+        "basePower": 0,
+        "accuracy": 75,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 10,
+        "statusModifier": "Sleep",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Puts opponent to sleep"
+    },
+    {
+        "name": "Meditate",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Psychic",
+        "category": "Status",
+        "pp": 40,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Attack",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Raises user's Attack"
+    },
+    {
+        "name": "Metronome",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User performs almost any move in the game at random"
+    },
+    {
+        "name": "Mimic",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Copies the opponent's last move"
+    },
+    {
+        "name": "Minimize",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 2,
+            "stat": "Evasiveness",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Sharply raises user's Evasiveness"
+    },
+    {
+        "name": "Mirror Move",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Flying",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User performs the opponent's last move"
+    },
+    {
+        "name": "Mist",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Ice",
+        "category": "Status",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "Block"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User's stats cannot be changed for a period of time"
+    },
+    {
+        "name": "Poison Gas",
+        "basePower": 0,
+        "accuracy": 90,
+        "type": "Poison",
+        "category": "Status",
+        "pp": 40,
+        "statusModifier": "Poison",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Poisons opponent"
+    },
+    {
+        "name": "Poison Powder",
+        "basePower": 0,
+        "accuracy": 75,
+        "type": "Poison",
+        "category": "Status",
+        "pp": 35,
+        "statusModifier": "Poison",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Poisons opponent"
+    },
+    {
+        "name": "Recover",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 5,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User recovers half its max HP"
+    },
+    {
+        "name": "Reflect",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Psychic",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "Defense",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Halves damage from Physical attacks for 5 turns"
+    },
+    {
+        "name": "Rest",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Psychic",
+        "category": "Status",
+        "pp": 5,
+        "statusModifier": "Sleep",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User sleeps for 2 turns, but user is fully healed"
+    },
+    {
+        "name": "Roar",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": -6,
+        "critChance": 0,
+        "specialMechanics": "In battles, the opponent switches. In the wild, the Pokémon runs"
+    },
+    {
+        "name": "Sand Attack",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Ground",
+        "category": "Status",
+        "pp": 15,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Accuracy",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Lowers opponent's Accuracy"
+    },
+    {
+        "name": "Screech",
+        "basePower": 0,
+        "accuracy": 85,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 40,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 2,
+            "stat": "Defense",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Sharply lowers opponent's Defense"
+    },
+    {
+        "name": "Sharpen",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Attack",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Raises user's Attack"
+    },
+    {
+        "name": "Sing",
+        "basePower": 0,
+        "accuracy": 55,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 15,
+        "statusModifier": "Sleep",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Puts opponent to sleep"
+    },
+    {
+        "name": "Sleep Powder",
+        "basePower": 0,
+        "accuracy": 75,
+        "type": "Grass",
+        "category": "Status",
+        "pp": 15,
+        "statusModifier": "Sleep",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Puts opponent to sleep"
+    },
+    {
+        "name": "Smokescreen",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Accuracy",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Lowers opponent's Accuracy"
+    },
+    {
+        "name": "Soft-Boiled",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 5,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User recovers half its max HP"
+    },
+    {
+        "name": "Splash",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 40,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Doesn't do ANYTHING"
+    },
+    {
+        "name": "Spore",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Grass",
+        "category": "Status",
+        "pp": 15,
+        "statusModifier": "Sleep",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Puts opponent to sleep"
+    },
+    {
+        "name": "String Shot",
+        "basePower": 0,
+        "accuracy": 95,
+        "type": "Bug",
+        "category": "Status",
+        "pp": 40,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 2,
+            "stat": "Speed",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Sharply lowers opponent's Speed"
+    },
+    {
+        "name": "Stun Spore",
+        "basePower": 0,
+        "accuracy": 75,
+        "type": "Grass",
+        "category": "Status",
+        "pp": 30,
+        "statusModifier": "Paralyze",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Paralyzes opponent"
+    },
+    {
+        "name": "Substitute",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Uses HP to create a decoy that takes hits"
+    },
+    {
+        "name": "Supersonic",
+        "basePower": 0,
+        "accuracy": 55,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "Confuse",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Confuses opponent"
+    },
+    {
+        "name": "Swords Dance",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 2,
+            "stat": "Attack",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Sharply raises user's Attack"
+    },
+    {
+        "name": "Tail Whip",
+        "basePower": 0,
+        "accuracy": 100,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 30,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Defense",
+            "modifier": "Decrease"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Lowers opponent's Defense"
+    },
+    {
+        "name": "Teleport",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Psychic",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": -6,
+        "critChance": 0,
+        "specialMechanics": "Allows user to flee wild battles; also warps player to last PokéCenter"
+    },
+    {
+        "name": "Thunder Wave",
+        "basePower": 0,
+        "accuracy": 90,
+        "type": "Electrik",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "Paralyze",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Paralyzes opponent"
+    },
+    {
+        "name": "Toxic",
+        "basePower": 0,
+        "accuracy": 90,
+        "type": "Poison",
+        "category": "Status",
+        "pp": 10,
+        "statusModifier": "Badly Poison",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Badly poisons opponent"
+    },
+    {
+        "name": "Transform",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 10,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "User takes on the form and attacks of the opponent"
+    },
+    {
+        "name": "Whirlwind",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Normal",
+        "category": "Status",
+        "pp": 20,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 0,
+            "stat": "None",
+            "modifier": "None"
+        },
+        "priority": -6,
+        "critChance": 0,
+        "specialMechanics": "In battles, the opponent switches. In the wild, the Pokémon runs"
+    },
+    {
+        "name": "Withdraw",
+        "basePower": 0,
+        "accuracy": 0,
+        "type": "Water",
+        "category": "Status",
+        "pp": 40,
+        "statusModifier": "None",
+        "statsModifier": {
+            "amount": 1,
+            "stat": "Defense",
+            "modifier": "Increase"
+        },
+        "priority": 0,
+        "critChance": 0,
+        "specialMechanics": "Raises user's Defense"
     }
 ]
+    

@@ -21,7 +21,7 @@ Pokemon::Pokemon(int number, std::string name, std::string sprite, int hp, int a
     Move firstMove = moveFromJson("Thunder");
     Move secondMove = moveFromJson("Tackle");
     Move thirdMove = moveFromJson("Scratch");
-    Move fourthMove = moveFromJson("Scratch");
+    Move fourthMove = moveFromJson("Teleport"); // Attack that will always miss to test the accuracy system
 
     itsMoves.push_back(firstMove);
     itsMoves.push_back(secondMove);
@@ -100,5 +100,6 @@ std::vector<Move> Pokemon::getItsMoves(){
 float computeTypeEfficacity(std::string typeAtk, std::string typeDef)
 {
     float efficiency = typesChart[typesMap[typeAtk]][typesMap[typeDef]];
+    std::cout << "Type efficacity of " << typeAtk << " against " << typeDef << " is " << efficiency << std::endl;
     return efficiency;
 }

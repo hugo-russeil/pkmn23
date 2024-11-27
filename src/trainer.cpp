@@ -88,10 +88,11 @@ void Trainer::catchPokemon(int nb) {
     int hp = stats.object["hp"].numberValue;
     int atk = stats.object["attack"].numberValue;
     int def = stats.object["defense"].numberValue;
+    int special = stats.object["special"].numberValue;
     float speed = stats.object["speed"].numberValue;
 
     // Create the Pokémon object and add it to the team
-    Pokemon* pokemon = new Pokemon(id, name, sprite, hp, atk, def, speed, type);
+    Pokemon* pokemon = new Pokemon(id, name, sprite, hp, atk, def, special, speed, type);
     Trainer::itsTeam.push_back(pokemon);
 
 }
@@ -328,7 +329,7 @@ void Trainer::botChoosePokemon(Pokemon *opponentsPokemon)
         int index = 0;
         //Searches for a pokemon with a type advantage over the opponent
         for (Pokemon* pokemon : getItsTeam()){
-            if(pokemon->typeEfficacity(pokemon->getItsType(), opponentsPokemon->getItsType()) == 2 && pokemon->getItsHp() > 0){
+            if(computeTypeEfficacity(pokemon->getItsType(), opponentsPokemon->getItsType()) == 2 && pokemon->getItsHp() > 0){
                 sendToBattle(index);
                 return;
             }
@@ -337,7 +338,7 @@ void Trainer::botChoosePokemon(Pokemon *opponentsPokemon)
         //If it doesn't find one, searches for a pokemon with no type weakness towards the opponent
         index = 0;
         for (Pokemon* pokemon : getItsTeam()){
-            if(pokemon->typeEfficacity(pokemon->getItsType(), opponentsPokemon->getItsType()) == 1 && pokemon->getItsHp() > 0){
+            if(computeTypeEfficacity(pokemon->getItsType(), opponentsPokemon->getItsType()) == 1 && pokemon->getItsHp() > 0){
                 sendToBattle(index);
                 return;
             }

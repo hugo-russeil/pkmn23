@@ -95,8 +95,6 @@ public:
      */
     ~Move();
 
-    Move moveFromJson(std::string moveName);
-
     // Getters
     std::string getName() const;
     int getBasePower() const;
@@ -113,5 +111,7 @@ public:
     // Setter
     void setPp(int newPP);
 };
+
+Move moveFromJson(std::string moveName);
 
 #endif // MOVE_H

@@ -2,6 +2,7 @@
 #include "typeTable.h"  // Include the type validation header
 #include <stdexcept>
 #include <iostream>
+#include <cctype>
 
 // Constructor with type validation
 Move::Move(
@@ -21,22 +22,15 @@ Move::Move(
       basePower(basePower), 
       accuracy(accuracy), 
       type(std::move(type)), 
-      category(category),  // Initialised correctly
+      category(category),
       pp(pp), 
       maxPp(pp), 
-      statusModifier(statusModifier),  // Initialised correctly
+      statusModifier(statusModifier),
       statsModifier(statsModifier), 
       priority(priority), 
       critChance(critChance), 
       specialMechanics(std::move(specialMechanics)) 
 {
-    // Type validation using the typesMap from TypeTable.h
-    if (typesMap.find(type) == typesMap.end()) {
-        throw std::invalid_argument("Invalid type specified: " + type);
-    }
-
-    this->type = type;
-
     // Validity check for accuracy
     if (accuracy < 0 || accuracy > 100) {
         throw std::out_of_range("Accuracy must be between 0 and 100.");
@@ -56,7 +50,7 @@ Move::Move(
 // Destructor
 Move::~Move() = default;
 
-Move Move::moveFromJson(std::string moveName) {
+Move moveFromJson(std::string moveName) {
     // Open the JSON file
     std::ifstream file("moves.json");
     if (!file) {
@@ -70,45 +64,56 @@ Move Move::moveFromJson(std::string moveName) {
     jsonHandler json = jsonHandler::parse(jsonContent);
 
     // Check if the move exists in the JSON object
-    if (json.object.find(moveName) == json.object.end()) {
-        throw std::invalid_argument("Move not found: " + moveName);
+    bool moveFound = false;
+    for (const auto& move : json.array) {
+        if (move.object.at("name").stringValue == moveName) {
+            moveFound = true;
+
+            // Extract the move data from the JSON object
+            const jsonHandler& moveData = move;
+
+            // Parse the attributes from the JSON data
+            std::string name = moveName;  // Move name passed as argument
+
+            int basePower = moveData.object.at("basePower").numberValue;
+
+            int accuracy = moveData.object.at("accuracy").numberValue;
+
+            std::string type = moveData.object.at("type").stringValue;
+
+            Move::Category category = (moveData.object.at("category").stringValue == "Physical") ? Move::Category::Physical :
+                                     (moveData.object.at("category").stringValue == "Special") ? Move::Category::Special : Move::Category::Status;
+            int pp = moveData.object.at("pp").numberValue;
+
+            // Status modifier (assuming it's a string like "None", "Burn", etc.)
+            Move::StatusModifier statusModifier = (moveData.object.at("statusModifier").stringValue == "None") ? Move::StatusModifier::None :
+                                                  (moveData.object.at("statusModifier").stringValue == "Burn") ? Move::StatusModifier::Burn :
+                                                  (moveData.object.at("statusModifier").stringValue == "Paralysis") ? Move::StatusModifier::Paralysis :
+                                                  (moveData.object.at("statusModifier").stringValue == "Freeze") ? Move::StatusModifier::Freeze :
+                                                  (moveData.object.at("statusModifier").stringValue == "Poison") ? Move::StatusModifier::Poison : Move::StatusModifier::Sleep;
+
+            // Stats modifier
+            StatsModifier statsModifier;
+            statsModifier.amount = moveData.object.at("statsModifier").object.at("amount").numberValue;
+            statsModifier.stat = (moveData.object.at("statsModifier").object.at("stat").stringValue == "Attack") ? StatsModifier::Stat::Attack :
+                                 (moveData.object.at("statsModifier").object.at("stat").stringValue == "Defense") ? StatsModifier::Stat::Defense :
+                                 (moveData.object.at("statsModifier").object.at("stat").stringValue == "Speed") ? StatsModifier::Stat::Speed :
+                                 (moveData.object.at("statsModifier").object.at("stat").stringValue == "Special") ? StatsModifier::Stat::Special : StatsModifier::Stat::None;
+            statsModifier.modifier = (moveData.object.at("statsModifier").object.at("modifier").stringValue == "Increase") ? StatsModifier::Modifier::Increase :
+                                     (moveData.object.at("statsModifier").object.at("modifier").stringValue == "Decrease") ? StatsModifier::Modifier::Decrease : StatsModifier::Modifier::None;
+
+            int priority = moveData.object.at("priority").numberValue;
+            int critChance = moveData.object.at("critChance").numberValue;
+            std::string specialMechanics = moveData.object.at("specialMechanics").stringValue;
+            
+            // Construct and return the Move object
+            return Move(name, basePower, accuracy, type, category, pp, statusModifier, statsModifier, priority, critChance, specialMechanics);
+        }
     }
 
-    // Extract the move data from the JSON object
-    const jsonHandler& moveData = json.object.at(moveName);
-
-    // Parse the attributes from the JSON data
-    std::string name = moveName;  // Move name passed as argument
-    int basePower = moveData.object.at("basePower").numberValue;
-    int accuracy = moveData.object.at("accuracy").numberValue;
-    std::string type = moveData.object.at("type").stringValue;
-    Category category = (moveData.object.at("category").stringValue == "Physical") ? Category::Physical :
-                        (moveData.object.at("category").stringValue == "Special") ? Category::Special : Category::Status;
-    int pp = moveData.object.at("pp").numberValue;
-    
-    // Status modifier (assuming it's a string like "None", "Burn", etc.)
-    StatusModifier statusModifier = (moveData.object.at("statusModifier").stringValue == "None") ? StatusModifier::None :
-                                     (moveData.object.at("statusModifier").stringValue == "Burn") ? StatusModifier::Burn :
-                                     (moveData.object.at("statusModifier").stringValue == "Paralysis") ? StatusModifier::Paralysis :
-                                     (moveData.object.at("statusModifier").stringValue == "Freeze") ? StatusModifier::Freeze :
-                                     (moveData.object.at("statusModifier").stringValue == "Poison") ? StatusModifier::Poison : StatusModifier::Sleep;
-
-    // Stats modifier
-    StatsModifier statsModifier;
-    statsModifier.amount = moveData.object.at("statsModifier").object.at("amount").numberValue;
-    statsModifier.stat = (moveData.object.at("statsModifier").object.at("stat").stringValue == "Attack") ? StatsModifier::Stat::Attack :
-                         (moveData.object.at("statsModifier").object.at("stat").stringValue == "Defense") ? StatsModifier::Stat::Defense :
-                         (moveData.object.at("statsModifier").object.at("stat").stringValue == "Speed") ? StatsModifier::Stat::Speed :
-                         (moveData.object.at("statsModifier").object.at("stat").stringValue == "Special") ? StatsModifier::Stat::Special : StatsModifier::Stat::None;
-    statsModifier.modifier = (moveData.object.at("statsModifier").object.at("modifier").stringValue == "Increase") ? StatsModifier::Modifier::Increase :
-                             (moveData.object.at("statsModifier").object.at("modifier").stringValue == "Decrease") ? StatsModifier::Modifier::Decrease : StatsModifier::Modifier::None;
-
-    int priority = moveData.object.at("priority").numberValue;
-    int critChance = moveData.object.at("critChance").numberValue;
-    std::string specialMechanics = moveData.object.at("specialMechanics").stringValue;
-
-    // Construct and return the Move object
-    return Move(name, basePower, accuracy, type, category, pp, statusModifier, statsModifier, priority, critChance, specialMechanics);
+    if (!moveFound) {
+        throw std::invalid_argument("Move not found: " + moveName);
+    }
 }
 
 

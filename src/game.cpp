@@ -5,6 +5,8 @@
 #define ENTER 10
 
 #include "game.h"
+#include "move.h"
+#include "pokemon.h"
 #include <random>
 #include <fstream>
 #include <chrono>
@@ -376,6 +378,8 @@ void Game::redrawPokemon(Trainer* player1, Trainer* player2)
 void Game::attack(Trainer *attacker, Trainer *defender)
 {
 
+    Move move = moveFromJson("Tackle"); // Default move until pkmn move system is implemented
+
     if(defender->getItsTeam().at(0)->getItsHp() > 0 && attacker->getItsTeam().at(0)->getItsHp() > 0){
 
         // Prepare random engine for the random value
@@ -384,16 +388,16 @@ void Game::attack(Trainer *attacker, Trainer *defender)
         std::uniform_real_distribution<float> distr(0.850980392, 1.0); // 217 - 255, then divided by 255
 
         int level = 50; // To be implemented
-        int basePower = 50; // To be implemented
-        int atk = attacker->getItsTeam().at(0)->getItsAtk();
-        int def = defender->getItsTeam().at(0)->getItsDef();
-        float STAB = 1.5; // To be implemented
-        float typeEfficacity = attacker->getItsTeam().at(0)->typeEfficacity(attacker->getItsTeam().at(0)->getItsType(), defender->getItsTeam().at(0)->getItsType());
+        int basePower = move.getBasePower();
+        int atk = (move.getCategory() == Move::Category::Physical) ? attacker->getItsTeam().at(0)->getItsAtk() : attacker->getItsTeam().at(0)->getItsSpecial();
+        int def = (move.getCategory() == Move::Category::Physical) ? defender->getItsTeam().at(0)->getItsDef() : defender->getItsTeam().at(0)->getItsSpecial();
+        float STAB = (attacker->getItsTeam().at(0)->getItsType() == move.getType()) ? 1.5 : 1;
+        float typeEfficacity = computeTypeEfficacity(move.getType(), defender->getItsTeam().at(0)->getItsType());
         float random = distr(eng);
 
         int damage = ((((2*level/5 + 2)*atk*basePower/def)/50)+2)*random*STAB*typeEfficacity;
 
-        std::cout << attacker->getItsTeam().at(0)->getItsName() << " uses " << "[attack]" << " !" << std::endl; // TODO : Add attack name
+        std::cout << attacker->getItsTeam().at(0)->getItsName() << " uses " << move.getName() << " !" << std::endl;
         if(typeEfficacity == 0) std::cout << "It doesn't affect " << defender->getItsTeam().at(0)->getItsName() << " !" << std::endl;
         else if(typeEfficacity == 0.5) std::cout << "It's not very effective !" << std::endl;
         else if(typeEfficacity == 2) std::cout << "It's very effective !" << std::endl;

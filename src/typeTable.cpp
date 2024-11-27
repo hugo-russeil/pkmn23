@@ -1,8 +1,8 @@
 #include "typeTable.h"
 
-std::map<std::string, int> typesMap{{"normal", 0}, {"fire",  1}, {"water",  2}, {"electrik", 3}, {"grass",   4},
-                                    {"ice",    5}, {"fight", 6}, {"poison", 7}, {"ground",   8}, {"flying",  9},
-                                    {"psy",   10}, {"bug",  11}, {"rock",  12}, {"ghost",   13}, {"dragon", 14}};
+std::map<std::string, int> typesMap{{"Normal", 0}, {"Fire",  1}, {"Water",  2}, {"Electrik", 3}, {"Grass",   4},
+                                    {"Ice",    5}, {"Fight", 6}, {"Poison", 7}, {"Ground",   8}, {"Flying",  9},
+                                    {"Psy",   10}, {"Bug",  11}, {"Rock",  12}, {"Ghost",   13}, {"Dragon", 14}};
 
 float typesChart[15][15] = {
 //               Normal Fire   Water  Elec   Grass  Ice    Fight  Poison Ground Flying Psy    Bug    Rock   Ghost  Dragon

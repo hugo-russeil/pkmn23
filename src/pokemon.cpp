@@ -3,7 +3,7 @@
 #include <iostream>
 #include <random>
 
-Pokemon::Pokemon(int number, std::string name, std::string sprite, int hp, int atk, int def, int speed, std::string type)
+Pokemon::Pokemon(int number, std::string name, std::string sprite, int hp, int atk, int def, int special, int speed, std::string type)
 {
     itsNumber = number;
     itsName = name;
@@ -11,6 +11,7 @@ Pokemon::Pokemon(int number, std::string name, std::string sprite, int hp, int a
     itsMaxHP = hp;
     itsAtk = atk;
     itsDef = def;
+    itsSpecial = special;
     itsSpeed = speed;
     itsSprite = sprite;
     itsType = type;
@@ -71,12 +72,17 @@ int Pokemon::getItsDef()
     return itsDef;
 }
 
+int Pokemon::getItsSpecial()
+{
+    return itsSpecial;
+}
+
 int Pokemon::getItsSpeed()
 {
     return itsSpeed;
 }
 
-float Pokemon::typeEfficacity(std::string typeAtk, std::string typeDef)
+float computeTypeEfficacity(std::string typeAtk, std::string typeDef)
 {
     float efficiency = typesChart[typesMap[typeAtk]][typesMap[typeDef]];
     return efficiency;

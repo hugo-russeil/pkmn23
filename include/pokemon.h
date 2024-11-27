@@ -45,6 +45,10 @@ protected:
      */
     int itsDef;
     /**
+     * @brief itsSpecial the pokemon's special stat
+     */
+    int itsSpecial;
+    /**
      * @brief itsSpeed the pokemon's speed stat
      */
     float itsSpeed;
@@ -52,10 +56,6 @@ protected:
      * @brief itsSize the pokemon's size in m
      */
     float itsSize;
-    /**
-     * @brief itsWeight the pokemon's weight in kg
-     */
-    float itsWeight;
     /**
      * @brief itsMaxHP the pokemon's maximum hp
      */
@@ -70,11 +70,11 @@ public:
      * @param hp the pokemon's hp
      * @param atk the pokemon's attack stat
      * @param def the pokemon's defense stat
-     * @param size the pokemon's size in meters
-     * @param weight the pokemon's weight in kilograms
+     * @param special the pokemon's special stat
+     * @param speed the pokemon's speed stat
      * @param type the pokemon's type
      */
-    Pokemon(int number, std::string name, std::string sprite, int hp, int atk, int def, int speed, std::string type);
+    Pokemon(int number, std::string name, std::string sprite, int hp, int atk, int def, int special, int speed, std::string type);
     ~Pokemon();
     //getters
     /**
@@ -113,6 +113,11 @@ public:
      */
     int getItsDef();
     /**
+     * @brief getItsSpecial returns the pokemon's special stat
+     * @return the pokemon's special stat
+     */
+    int getItsSpecial();
+    /**
      * @brief getItsSpeed returns the pokemon's speed stat
      * @return the pokemon's speed stat
      */
@@ -134,13 +139,14 @@ public:
      * @param dmg the damage count to be deducted from the pokemon's hp
      */
     void takeDamage(int dmg);
-    /**
-     * @brief typeEfficacity returns the efficiency multiplier for typeAtk attacking typeDef
-     * @param typeAtk the type of the attacking pokemon
-     * @param typeDef the type of the defending pokemon
-     * @return the type efficiency multiplier for typeAtk attacking typeDef
-     */
-    float typeEfficacity(std::string typeAtk, std::string typeDef);
 };
+
+/**
+ * @brief computeTypeEfficacity returns the efficiency multiplier for typeAtk attacking typeDef
+ * @param typeAtk the type of the attacking pokemon
+ * @param typeDef the type of the defending pokemon
+ * @return the type efficiency multiplier for typeAtk attacking typeDef
+ */
+float computeTypeEfficacity(std::string typeAtk, std::string typeDef);
 
 #endif // POKEMON_H

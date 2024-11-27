@@ -8,6 +8,8 @@
 #endif
 
 #include <iostream>
+#include "move.h"
+#include <vector>
 
 class Pokemon
 {
@@ -60,6 +62,10 @@ protected:
      * @brief itsMaxHP the pokemon's maximum hp
      */
     int itsMaxHP;
+    /**
+     * @brief itsMoves the pokemon's moves
+     */
+    std::vector<Move> itsMoves;
 
 public:
     /**
@@ -127,6 +133,11 @@ public:
      * @return the pokemon's type
      */
     std::string getItsType();
+    /**
+     * @brief getItsMoves returns the pokemon's moves
+     * @return the pokemon's moves
+     */
+    std::vector<Move> getItsMoves();
 
     //setters
     /**

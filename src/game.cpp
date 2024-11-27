@@ -17,11 +17,12 @@ Game::Game()
 
 }
 
+Trainer *player1 = nullptr, *player2 = nullptr;
+
 void Game::gameLoop()
 {
     std::string name;
     int playerNb = 3;
-    Trainer *player1 = nullptr, *player2 = nullptr;
 
     std::random_device rd;
     std::default_random_engine eng(rd());
@@ -378,9 +379,32 @@ void Game::redrawPokemon(Trainer* player1, Trainer* player2)
 void Game::attack(Trainer *attacker, Trainer *defender)
 {
 
-    Move move = moveFromJson("Tackle"); // Default move until pkmn move system is implemented
+    Move move = selectMove(*attacker->getItsTeam().at(0));
 
     if(defender->getItsTeam().at(0)->getItsHp() > 0 && attacker->getItsTeam().at(0)->getItsHp() > 0){
+
+        std::cout << attacker->getItsTeam().at(0)->getItsName() << " uses " << move.getName() << " !" << std::endl;
+
+        // Check if the move misses and return immediately if it does
+        if(move.getAccuracy() < 100){
+            std::random_device rd;
+            std::default_random_engine eng(rd());
+            std::uniform_int_distribution<int> distr(1, 100);
+            int accuracy = distr(eng);
+            if(accuracy > move.getAccuracy()){
+                std::cout << "But misses !" << std::endl;
+                return;
+            }
+        }
+
+        // Return immediately if the move doesn't affect the target
+        float typeEfficacity = computeTypeEfficacity(move.getType(), defender->getItsTeam().at(0)->getItsType());
+        if(typeEfficacity == 0){ 
+            std::cout << "It doesn't affect " << defender->getItsTeam().at(0)->getItsName() << " !" << std::endl;
+            return;
+        }
+        else if(typeEfficacity == 0.5) std::cout << "It's not very effective !" << std::endl;
+        else if(typeEfficacity == 2) std::cout << "It's very effective !" << std::endl;
 
         // Prepare random engine for the random value
         std::random_device rd;
@@ -392,15 +416,9 @@ void Game::attack(Trainer *attacker, Trainer *defender)
         int atk = (move.getCategory() == Move::Category::Physical) ? attacker->getItsTeam().at(0)->getItsAtk() : attacker->getItsTeam().at(0)->getItsSpecial();
         int def = (move.getCategory() == Move::Category::Physical) ? defender->getItsTeam().at(0)->getItsDef() : defender->getItsTeam().at(0)->getItsSpecial();
         float STAB = (attacker->getItsTeam().at(0)->getItsType() == move.getType()) ? 1.5 : 1;
-        float typeEfficacity = computeTypeEfficacity(move.getType(), defender->getItsTeam().at(0)->getItsType());
         float random = distr(eng);
 
         int damage = ((((2*level/5 + 2)*atk*basePower/def)/50)+2)*random*STAB*typeEfficacity;
-
-        std::cout << attacker->getItsTeam().at(0)->getItsName() << " uses " << move.getName() << " !" << std::endl;
-        if(typeEfficacity == 0) std::cout << "It doesn't affect " << defender->getItsTeam().at(0)->getItsName() << " !" << std::endl;
-        else if(typeEfficacity == 0.5) std::cout << "It's not very effective !" << std::endl;
-        else if(typeEfficacity == 2) std::cout << "It's very effective !" << std::endl;
 
         defender->getItsTeam().at(0)->takeDamage(damage);
         while (std::cin.get()!='\n');
@@ -454,7 +472,101 @@ int Game::gameMenu(int selected){
 }
 
 
+#include <termios.h>
+#include <unistd.h>
+#include <iostream>
+#include <vector>
 
+Move Game::selectMove(Pokemon &pokemon) {
+    const auto &moves = pokemon.getItsMoves();
+    int moveCount = moves.size();
+    if (moveCount == 0) {
+        throw std::runtime_error("This Pokémon has no moves!");
+    }
 
+    int currentChoice = 0;         // Current selected move
+    const int moveColumns = 2;     // Number of moves per line
+    const int moveRows = (moveCount + 1) / moveColumns; // Calculate number of rows
 
+    // Save original terminal settings
+    struct termios original, raw;
+    tcgetattr(STDIN_FILENO, &original); // Get current settings
+    raw = original;
 
+    // Disable canonical mode and echo
+    raw.c_lflag &= ~(ICANON | ECHO);
+    tcsetattr(STDIN_FILENO, TCSANOW, &raw);
+
+    try {
+        while (true) {
+            // Clear and redisplay the battle information
+            CLEAR;
+            displayBattle(player1, player2);
+
+            // Display the move selection menu
+            std::cout << "\nSelect a move for " << pokemon.getItsName() << ":\n";
+
+            // Display moves in a grid (2 moves per row)
+            for (int i = 0; i < moveCount; ++i) {
+                int col = i % moveColumns;
+
+                // Add indentation for the second column
+                if (col == 1) {
+                    std::cout << "     ";
+                }
+
+                // Highlight the selected move with '>'
+                if (i == currentChoice) {
+                    std::cout << "> " << moves[i].getName() << "   ";
+                } else {
+                    std::cout << "  " << moves[i].getName() << "   ";
+                }
+
+                // Add newline at the end of each row
+                if (col == 1) {
+                    std::cout << "\n";
+                }
+            }
+
+            // Wait for user input
+            int input = getch();
+
+            // Handle navigation and selection
+            switch (input) {
+            case KEY_UP:
+                if (currentChoice - moveColumns >= 0) {
+                    currentChoice -= moveColumns; // Move up
+                }
+                break;
+            case KEY_DOWN:
+                if (currentChoice + moveColumns < moveCount) {
+                    currentChoice += moveColumns; // Move down
+                }
+                break;
+            case KEY_LEFT:
+                if (currentChoice > 0) {
+                    currentChoice--; // Move left
+                }
+                break;
+            case KEY_RIGHT:
+                if (currentChoice < moveCount - 1) {
+                    currentChoice++; // Move right
+                }
+                break;
+            case '\n': // Enter key (Confirm selection)
+                CLEAR;
+                displayBattle(player1, player2);
+                return moves[currentChoice];
+            default:
+                break;
+            }
+        }
+    } catch (...) {
+        // Restore original terminal settings in case of exceptions
+        tcsetattr(STDIN_FILENO, TCSANOW, &original);
+        throw;
+    }
+
+    // Restore original terminal settings
+    tcsetattr(STDIN_FILENO, TCSANOW, &original);
+}

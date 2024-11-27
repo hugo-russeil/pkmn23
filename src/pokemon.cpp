@@ -15,7 +15,18 @@ Pokemon::Pokemon(int number, std::string name, std::string sprite, int hp, int a
     itsSpeed = speed;
     itsSprite = sprite;
     itsType = type;
+    itsMoves = std::vector<Move>();
     
+    // All moves will be hardcoded for now
+    Move firstMove = moveFromJson("Thunder");
+    Move secondMove = moveFromJson("Tackle");
+    Move thirdMove = moveFromJson("Scratch");
+    Move fourthMove = moveFromJson("Scratch");
+
+    itsMoves.push_back(firstMove);
+    itsMoves.push_back(secondMove);
+    itsMoves.push_back(thirdMove);
+    itsMoves.push_back(fourthMove);
 }
 
 Pokemon::~Pokemon(){
@@ -80,6 +91,10 @@ int Pokemon::getItsSpecial()
 int Pokemon::getItsSpeed()
 {
     return itsSpeed;
+}
+
+std::vector<Move> Pokemon::getItsMoves(){
+    return itsMoves;
 }
 
 float computeTypeEfficacity(std::string typeAtk, std::string typeDef)

@@ -46,6 +46,17 @@ public:
      * @return the selected option on the menu
      */
     int gameMenu(int selected = 0);
+
+    /**
+     * @brief selectMove allows the player to select a move
+     * @param pokemon the pokemon that is making the move
+     * @return the selected move
+     */
+    Move selectMove(Pokemon &pokemon);
 };
+
+
+
+extern Trainer *player1, *player2;
 
 #endif // GAME_H

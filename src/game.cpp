@@ -393,6 +393,7 @@ void Game::attack(Trainer *attacker, Trainer *defender)
             int accuracy = distr(eng);
             if(accuracy > move.getAccuracy()){
                 std::cout << "But misses !" << std::endl;
+                while (std::cin.get()!='\n');
                 return;
             }
         }
@@ -401,6 +402,7 @@ void Game::attack(Trainer *attacker, Trainer *defender)
         float typeEfficacity = computeTypeEfficacity(move.getType(), defender->getItsTeam().at(0)->getItsType());
         if(typeEfficacity == 0){ 
             std::cout << "It doesn't affect " << defender->getItsTeam().at(0)->getItsName() << " !" << std::endl;
+            while (std::cin.get()!='\n');
             return;
         }
         else if(typeEfficacity == 0.5) std::cout << "It's not very effective !" << std::endl;

@@ -53,6 +53,14 @@ public:
      * @return the selected move
      */
     Move selectMove(Pokemon &pokemon);
+
+    /**
+     * @brief botSelectMove allows the bot to select a move
+     * @param pokemon the pokemon that is making the move
+     * @param target the target of the move
+     * @return the selected move
+     */
+    Move botSelectMove(Pokemon &pokemon, Trainer *target);
 };
 
 

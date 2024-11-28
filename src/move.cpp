@@ -47,6 +47,9 @@ Move::Move(
     }
 }
 
+// Default constructor
+Move::Move() {}
+
 // Destructor
 Move::~Move() = default;
 

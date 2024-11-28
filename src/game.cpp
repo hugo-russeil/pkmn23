@@ -378,8 +378,10 @@ void Game::redrawPokemon(Trainer* player1, Trainer* player2)
 
 void Game::attack(Trainer *attacker, Trainer *defender)
 {
+    Move move;
 
-    Move move = selectMove(*attacker->getItsTeam().at(0));
+    if(attacker->getIsHuman()) move= selectMove(*attacker->getItsTeam().at(0));
+    else move = botSelectMove(*attacker->getItsTeam().at(0), defender);
 
     if(defender->getItsTeam().at(0)->getItsHp() > 0 && attacker->getItsTeam().at(0)->getItsHp() > 0){
 
@@ -571,4 +573,31 @@ Move Game::selectMove(Pokemon &pokemon) {
 
     // Restore original terminal settings
     tcsetattr(STDIN_FILENO, TCSANOW, &original);
+}
+
+Move Game::botSelectMove(Pokemon &pokemon, Trainer *target) {
+    std::vector<Move> moves = pokemon.getItsMoves();
+
+    if (moves.empty()) {
+        // Handle the case when the Pokémon has no moves
+        // You can either throw an exception or return a default move
+        throw std::runtime_error("This Pokémon has no moves!");
+    }
+
+    // Search for a move with a type advantage over the opponent
+    for (const auto &move : moves) {
+        if (computeTypeEfficacity(move.getType(), target->getItsTeam().at(0)->getItsType()) == 2) {
+            return move;
+        }
+    }
+
+    // If no move with a type advantage is found, search for a move with no type weakness
+    for (const auto &move : moves) {
+        if (computeTypeEfficacity(move.getType(), target->getItsTeam().at(0)->getItsType()) == 1) {
+            return move;
+        }
+    }
+
+    // If no move with a type advantage or no type weakness is found, return the first move
+    return moves[0];
 }

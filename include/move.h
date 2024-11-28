@@ -91,6 +91,11 @@ public:
     );
 
     /**
+     * @brief Default constructor for the Move class.
+     */
+    Move();
+
+    /**
      * @brief Destructs the Move object.
      */
     ~Move();

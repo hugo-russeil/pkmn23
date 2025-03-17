@@ -1,16 +1,57 @@
-# PoKeMoN Card Game
+# **PKMN23**
 
-The objective of this project is to create a Pokemon-inspired card game for 2 players, either human or AI, with a console interface.
+PKMN23 is a turn-based Pokémon battle game designed to run in the terminal, inspired by classic battles from the original Game Boy Pokémon games. Initially created as a university project to demonstrate object-oriented programming (OOP) principles, this version has been reworked to remove unnecessary constraints from the original assignment, making it actually playable.  
 
-## Specifications
+While the game is still incomplete, it features all 151 first-generation Pokémon, type matchups, and basic move functionality, with plans to expand upon battle mechanics in future updates.  
 
-- **Pokemon**: The game features Pokemon with various attributes such as name, height, weight, health points (HP), attack, defense, and type. The types include Normal, Water, Fire, Plant, Electric, Ice, Poison, Fighting, Psychic, Ground, Rock, Ghost, Bug, Flying and Dragon. Each type has specific characteristics and interactions with other types.
 
-- **Trainers**: Trainers have a name, level, points, and a team of 6 Pokemon. They can capture or transfer Pokemon, and engage in battles. The level of a trainer increases based on the points earned through various actions.
+## **Features**  
+- Turn-based battles, similar to the Game Boy Pokémon games  
+- Full roster of 151 first-generation Pokémon  
+- Local multiplayer support  
+- Single-player mode with AI battles (including AI-only matches)  
+- Basic move functionality (more moves to be added)  
+- Type effectiveness system  
 
-- **Battles**: Battles occur between Pokemon from the opposing trainers' teams. The Pokemon's attributes, such as health points attack, defense and speed, determine the outcome of the battle. The battle starts with each trainer having a team of 6 Pokemon, and continue until all Pokemon from one trainer's team are knocked out.. The trainer withe the highest level chooses a pokemon to send to battle first, followed by the second player. The fastest pokemon attacks his opponent n times, n being his speed divided by his opponent's, and the slowest attacks his opponent once, until a pokemon is knocked out. After each attack, the defending pokemon takes damages, defined by :  
-Math block:
-$$
-(((((2*50/5)+2)*50*(Atk/Def))/50)+2)*random*STAB*type
-$$
+**Upcoming Features:**  
+- Status effects (e.g., paralysis, sleep, poison)  
+- More moves from the original games  
 
+
+## **Installation & Running the Game**  
+### **Requirements**  
+- A C++ compiler (g++)  
+- `ncurses` library  
+
+### **Build & Run**  
+Clone the repository:  
+```bash
+git clone https://github.com/yourusername/PKMN23.git
+cd PKMN23
+```
+Compile the game using the provided Makefile:  
+```bash
+make
+```
+Run the game:  
+```bash
+./pkmn23
+```
+To clean up compiled files:  
+```bash
+make clean
+```
+
+## **Tech Stack**  
+- **Language:** C++ (C++11 standard)  
+- **Libraries:** ncurses (for terminal UI)  
+- **Build System:** Makefile  
+
+
+## **License**
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details. 
+
+## **Disclaimer**
+
+This is a fan-made project created for educational and entertainment purposes. Pokémon and all related trademarks are the property of Nintendo, Game Freak, and The Pokémon Company. I do not claim ownership of any official Pokémon assets, and this project is not affiliated with or endorsed by the official Pokémon franchise. Please don’t sue me.
